@@ -9,7 +9,7 @@ import NoteList from "@/components/NoteList/NoteList";
 import Pagination from "@/components/Pagination/Pagination";
 import SearchBox from "@/components/SearchBox/SearchBox";
 
-import * as services from "@/lib/api";
+import * as services from "@/lib/api/clientApi";
 import { useDebouncedCallback } from "use-debounce";
 
 import css from "./page.module.css";
@@ -35,13 +35,6 @@ export default function Notes({ tag }: { tag: string | undefined }) {
   const totalPages = data?.totalPages ?? 0;
   const notes = data?.notes ?? [];
 
-  // const handleChange = useDebouncedCallback(
-  //   (e: React.ChangeEvent<HTMLInputElement>) => {
-  //     setSearch(e.target.value);
-  //     setPage(1);
-  //   },
-  //   1000,
-  // );
   const handleChange = useDebouncedCallback((value: string) => {
     setSearch(value);
     setPage(1);
