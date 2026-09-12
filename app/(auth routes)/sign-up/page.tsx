@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { register, RegisterRequest } from "@/lib/api/clientApi";
 import { useAuthStore } from "@/lib/store/authStore";
-import { ApiError } from "@/app/api/api";
+import { ApiError } from "@/lib/api/api";
 import css from "./SignUpPage.module.css";
 
 const SignUp = () => {
@@ -16,12 +16,8 @@ const SignUp = () => {
     try {
       const formValues = Object.fromEntries(formData) as RegisterRequest;
       const res = await register(formValues);
-      if (res) {
-        setUser(res);
-        router.push("/profile");
-      } else {
-        setError("Invalid email or password");
-      }
+      setUser(res);
+      router.push("/profile");
     } catch (error) {
       setError(
         (error as ApiError).response?.data?.error ??
@@ -63,12 +59,9 @@ const SignUp = () => {
               Register
             </button>
           </div>
-
-          <p className={css.error}>Error</p>
         </form>
-        {error && <p>{error}</p>}
+        {error && <p className={css.error}>{error}</p>}
       </main>
-      ;
     </>
   );
 };

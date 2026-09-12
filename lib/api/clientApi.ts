@@ -58,14 +58,33 @@ export const register = async (data: RegisterRequest) => {
   const res = await nextServer.post<User>("/auth/register", data);
   return res.data;
 };
-// fetchNotes
-// fetchNoteById
-// createNote
-// deleteNote
-// register
 
-// login
-// logout
-// checkSession
-// getMe
+export type LoginRequest = {
+  email: string;
+  password: string;
+};
+
+export const login = async (data: RegisterRequest) => {
+  const res = await nextServer.post<User>("/auth/login", data);
+  return res.data;
+};
+
+type CheckSessionRequest = {
+  success: boolean;
+};
+
+export async function checkSession() {
+  const res = await nextServer.get<CheckSessionRequest>("/auth/session");
+  return res.data.success;
+}
+
+export async function getMe() {
+  const { data } = await nextServer.get("/users/me");
+  return data;
+}
+
+export const logout = async (): Promise<void> => {
+  await nextServer.post("/auth/logout");
+};
+
 // updateMe
