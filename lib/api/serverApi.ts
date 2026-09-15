@@ -1,5 +1,5 @@
 import nextServer from "./api";
-import type { Note, Tag } from "@/types/note";
+import type { Note } from "@/types/note";
 import { cookies } from "next/headers";
 
 interface NoteResponseProps {
