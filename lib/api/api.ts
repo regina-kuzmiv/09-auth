@@ -8,5 +8,3 @@ const nextServer = axios.create({
 });
 
 export default nextServer;
-
-// localhost в .env треба буде змінити на діючий коли закину на vercel
