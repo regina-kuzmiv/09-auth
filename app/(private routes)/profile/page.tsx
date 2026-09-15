@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "View and manage your profile information",
 };
 
-export const Profile = async () => {
+export default async function Profile() {
   const user = await getMe();
 
   return (
@@ -37,4 +37,4 @@ export const Profile = async () => {
       </div>
     </main>
   );
-};
+}

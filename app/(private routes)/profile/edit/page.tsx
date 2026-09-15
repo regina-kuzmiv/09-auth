@@ -8,7 +8,7 @@ import { useAuthStore } from "@/lib/store/authStore";
 // import { redirect } from "next/navigation";
 import { useRouter } from "next/navigation";
 
-export const EditProfile = () => {
+export default function EditProfile() {
   const setUser = useAuthStore((store) => store.setUser);
   const user = useAuthStore((store) => store.user);
   const router = useRouter();
@@ -77,4 +77,4 @@ export const EditProfile = () => {
       </div>
     </main>
   );
-};
+}
