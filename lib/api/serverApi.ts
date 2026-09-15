@@ -34,5 +34,22 @@ export async function fetchNoteById(id: string): Promise<Note> {
   return response.data;
 }
 
-// getMe
-// checkSession .
+export async function checkSession() {
+  const cookieStore = await cookies();
+  const res = await nextServer.get("/auth/session", {
+    headers: {
+      Cookie: cookieStore.toString(),
+    },
+  });
+  return res;
+}
+
+export async function getMe() {
+  const cookieStore = await cookies();
+  const { data } = await nextServer.get("/users/me", {
+    headers: {
+      Cookie: cookieStore.toString(),
+    },
+  });
+  return data;
+}
