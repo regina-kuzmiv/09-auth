@@ -5,7 +5,6 @@ import { useState } from "react";
 import { updateMe } from "@/lib/api/clientApi";
 import Image from "next/image";
 import { useAuthStore } from "@/lib/store/authStore";
-// import { redirect } from "next/navigation";
 import { useRouter } from "next/navigation";
 
 export default function EditProfile() {
@@ -26,7 +25,6 @@ export default function EditProfile() {
 
     const updatedUser = await updateMe({
       username,
-      email: user.email,
     });
     setUser(updatedUser);
     router.push("/profile");

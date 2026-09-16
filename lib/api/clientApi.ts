@@ -79,7 +79,7 @@ export async function checkSession() {
 }
 
 export async function getMe() {
-  const { data } = await nextServer.get("/users/me");
+  const { data } = await nextServer.get<User>("/users/me");
   return data;
 }
 
@@ -89,7 +89,6 @@ export const logout = async (): Promise<void> => {
 
 export type UpdateUserRequest = {
   username: string;
-  email: string;
 };
 
 export const updateMe = async (data: UpdateUserRequest) => {
