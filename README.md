@@ -277,9 +277,3 @@ During this project, I practiced:
 * configuring remote images in Next.js
 * working with environment variables
 * deploying a Next.js application to Vercel
-
-## 👩‍💻 Author
-
-**Rehina Kuzmiv**
-
-[LinkedIn](www.linkedin.com/in/rehina-kuzmiv)
